@@ -59,3 +59,7 @@ composer.phar
 # End of https://www.gitignore.io/api/symfony,composer
 
 .web-server-pid
+
+
+heroku-cli-v6.14.39-addc925-linux-x86/
+heroku.tar.gz
