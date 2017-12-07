@@ -33,7 +33,7 @@ class BlogController extends Controller
         return $this->render('Posts/posts.html.twig', array('posts' => $this->getAllBlogPost()));
     }
 
-	/**
+    /**
      * @Route("/luckynumber/{max}")
      */
     public function numberAction($max = 100)
@@ -44,12 +44,20 @@ class BlogController extends Controller
             '<html><body>Lucky number: <p style="font-size:100px">'.$number.'</p></body></html>'
         );
     }
+    
+    /**
+     * @Route("/createBP")
+     */
+    public function createBP()
+    {
+        $this->createBlogPost();
+    }
 
     public function createBlogPost(){
         $blogPost = new BlogPost();
         $blogPost->setTitle("Titre BlogPost!");
         $blogPost->getUrlAlias('');
-        $blogPost->setContent("Contenu BlogPost!!");
+        $blogPost->setContent("~~ Random lucky blogPost ~~");
         $blogPost->setPublished(null);
 
         $em = $this->getDoctrine()->getManager();
