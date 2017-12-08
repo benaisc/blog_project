@@ -31,16 +31,16 @@ class BlogPost
     /**
      * @var string
      *
-     * @ORM\Column(name="url_alias", type="string", length=255, unique=true)
+     * @ORM\Column(name="content", type="text")
      */
-    private $urlAlias;
+    private $content;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(name="url_alias", type="string", length=255, unique=true)
      */
-    private $content;
+    private $urlAlias;
 
     /**
      * @var \DateTime
@@ -85,30 +85,6 @@ class BlogPost
     }
 
     /**
-     * Set urlAlias
-     *
-     * @param string $urlAlias
-     *
-     * @return BlogPost
-     */
-    public function setUrlAlias($urlAlias)
-    {
-        $this->urlAlias = $urlAlias;
-
-        return $this;
-    }
-
-    /**
-     * Get urlAlias
-     *
-     * @return string
-     */
-    public function getUrlAlias()
-    {
-        return $this->urlAlias;
-    }
-
-    /**
      * Set content
      *
      * @param string $content
@@ -130,6 +106,30 @@ class BlogPost
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set urlAlias
+     *
+     * @param string $urlAlias
+     *
+     * @return BlogPost
+     */
+    public function setUrlAlias($urlAlias)
+    {
+        $this->urlAlias = $urlAlias;
+
+        return $this;
+    }
+
+    /**
+     * Get urlAlias
+     *
+     * @return string
+     */
+    public function getUrlAlias()
+    {
+        return $this->urlAlias;
     }
 
     /**

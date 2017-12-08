@@ -2,5 +2,7 @@
 
 {% block body %}
 	<h1> POST TITLE </h1>
-	Post id: {{post_id}}
+	Post id: {{ post.getId() }}
+
+	{{dump(post)}}
 {% endblock %}

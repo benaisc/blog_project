@@ -55,11 +55,11 @@ composer.phar
 ### Symfony Patch ###
 /web/css/
 /web/js/
-
-# End of https://www.gitignore.io/api/symfony,composer
-
 .web-server-pid
 
+# Manually added
 
+
+# Heroku files
 heroku-cli-v6.14.39-addc925-linux-x86/
 heroku.tar.gz

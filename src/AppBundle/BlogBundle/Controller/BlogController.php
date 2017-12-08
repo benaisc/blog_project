@@ -2,6 +2,7 @@
 
 namespace AppBundle\BlogBundle\Controller;
 
+use AppBundle\BlogBundle\Entity\Post;
 use AppBundle\Entity\BlogPost;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,7 +23,7 @@ class BlogController extends Controller
      */
     public function affichePostAction($post_id = 1)
     {
-        return $this->render('Posts/post.html.twig', array('post_id' => $post_id));
+        return $this->render('Posts/post.html.twig', array('post' => $this->getBlogPost($post_id)));
     }
 
     /**
@@ -30,7 +31,7 @@ class BlogController extends Controller
      */
     public function afficheAllPosts()
     {
-        return $this->render('Posts/posts.html.twig', array('posts' => $this->getAllBlogPost()));
+        return $this->render('Posts/posts.html.twig', array('all_posts' => $this->getAllBlogPost()));
     }
 
     /**
@@ -44,21 +45,17 @@ class BlogController extends Controller
             '<html><body>Lucky number: <p style="font-size:100px">'.$number.'</p></body></html>'
         );
     }
-    
+
     /**
      * @Route("/createBP")
      */
-    public function createBP()
-    {
-        $this->createBlogPost();
-    }
-
-    public function createBlogPost(){
+    public function createBlogPost($title='Title',
+                                   $content='lorem ipsum'){
         $blogPost = new BlogPost();
-        $blogPost->setTitle("Titre BlogPost!");
-        $blogPost->getUrlAlias('');
-        $blogPost->setContent("~~ Random lucky blogPost ~~");
-        $blogPost->setPublished(null);
+        $blogPost->setTitle($title);
+        $blogPost->setContent($content);
+        $blogPost->setUrlAlias(mt_rand(0, 665535));
+        $blogPost->setPublished(new \DateTime('now'));
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($blogPost);
