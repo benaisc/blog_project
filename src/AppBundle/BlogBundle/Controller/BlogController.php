@@ -2,7 +2,6 @@
 
 namespace AppBundle\BlogBundle\Controller;
 
-use AppBundle\BlogBundle\Entity\Post;
 use AppBundle\Entity\BlogPost;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -51,10 +50,11 @@ class BlogController extends Controller
      */
     public function createBlogPost($title='Title',
                                    $content='lorem ipsum'){
+        $rnd = mt_rand(0, 665535);
         $blogPost = new BlogPost();
-        $blogPost->setTitle($title);
+        $blogPost->setTitle($title.' '.$rnd);
         $blogPost->setContent($content);
-        $blogPost->setUrlAlias(mt_rand(0, 665535));
+        $blogPost->setUrlAlias(urlencode($title.' '.$rnd));
         $blogPost->setPublished(new \DateTime('now'));
 
         $em = $this->getDoctrine()->getManager();
