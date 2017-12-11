@@ -25,44 +25,6 @@ class BlogController extends Controller
         return $this->render('Posts/post.html.twig', array('post' => $this->getBlogPost($post_id)));
     }
 
-    /**
-     * @Route("/posts", name="all_posts")
-     */
-    public function afficheAllPosts()
-    {
-        return $this->render('Posts/posts.html.twig', array('all_posts' => $this->getAllBlogPost()));
-    }
-
-    /**
-     * @Route("/luckynumber/{max}")
-     */
-    public function numberAction($max = 100)
-    {
-        $number = mt_rand(0, $max);
-
-        return new Response(
-            '<html><body>Lucky number: <p style="font-size:100px">'.$number.'</p></body></html>'
-        );
-    }
-
-    /**
-     * @Route("/createBP")
-     */
-    public function createBlogPost($title='Title',
-                                   $content='lorem ipsum'){
-        $rnd = mt_rand(0, 665535);
-        $blogPost = new BlogPost();
-        $blogPost->setTitle($title.' '.$rnd);
-        $blogPost->setContent($content);
-        $blogPost->setUrlAlias(urlencode($title.' '.$rnd));
-        $blogPost->setPublished(new \DateTime('now'));
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($blogPost);
-        $em->flush();
-
-        return new Response('ID du BlogPost créé: '.$blogPost->getId());
-    }
 
     public function getBlogPost($id){
         $blogPost = $this->getDoctrine()

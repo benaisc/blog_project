@@ -1,3 +1,7 @@
+app_blog_post:
+    resource: "@AppBundle/Controller/BlogPostController.php"
+    type:     annotation
+
 app_bundle_blog:
     resource: "@AppBundleBlogBundle/Controller/"
     type:     annotation

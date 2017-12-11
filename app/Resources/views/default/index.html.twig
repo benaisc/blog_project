@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for post in posts %}
+    {% for post in posts|reverse %}
     <!-- Blog Post Start -->
     <div class="col-md-12 blog-post">
         <div class="post-title">
@@ -10,7 +10,7 @@
         <div class="post-info">
             <span>{{ post.getPublishedStr() }} / by <a href="#" target="_blank">Alois</a></span>
         </div>
-        <p>{{ post.getSomeContent() }}</p>
+        <p>{{ post.getSomeContent() }}...</p>
         <a href="http://127.0.0.1:8000/post/{{ post.id }}" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
     </div>
     <!-- Blog Post End -->
