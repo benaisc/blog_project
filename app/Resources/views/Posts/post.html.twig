@@ -1,8 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<h1> POST TITLE </h1>
-	Post id: {{ post.getId() }}
-
-	{{dump(post)}}
+	<!-- Blog Post Start -->
+	<div class="col-md-12 blog-post">
+		<div class="post-title">
+			<h1>{{ post.title }}</h1></a>
+		</div>
+		<div class="post-info">
+			<span>{{ post.getPublishedStr() }} / by <a href="#" target="_blank">Alois</a></span>
+		</div>
+		<p>{{ post.content }}</p>
+	</div>
+	<!-- Blog Post End -->
 {% endblock %}

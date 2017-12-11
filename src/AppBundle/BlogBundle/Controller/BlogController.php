@@ -14,7 +14,7 @@ class BlogController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        return $this->render('default/index.html.twig', array('posts' => $this->getAllBlogPost()));
     }
 
     /**

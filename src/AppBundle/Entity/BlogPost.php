@@ -155,5 +155,27 @@ class BlogPost
     {
         return $this->published;
     }
+
+    /**
+     * Get published string
+     *
+     * @return string
+     */
+    public function getPublishedStr()
+    {
+        return $this->published->format('d/m/Y h:mm');
+    }
+
+    /**
+     * Get some of the content
+     *
+     * @return string
+     */
+    public function getSomeContent()
+    {
+        return substr($this->content,0,255);
+    }
+
+
 }
 
