@@ -163,7 +163,7 @@ class BlogPost
      */
     public function getPublishedStr()
     {
-        return $this->published->format('d/m/Y h:mm');
+        return $this->published->format('d/m/Y H:i');
     }
 
     /**

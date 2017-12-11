@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for i in 0..10 %}
+    {% for post in posts %}
     <!-- Blog Post Start -->
     <div class="col-md-12 blog-post">
         <div class="post-title">
-            <a href="#"><h1>{{ posts[i].title }}</h1></a>
+            <a href="#"><h1>{{ post.title }}</h1></a>
         </div>
         <div class="post-info">
-            <span>{{ posts[i].getPublishedStr() }} / by <a href="#" target="_blank">Alois</a></span>
+            <span>{{ post.getPublishedStr() }} / by <a href="#" target="_blank">Alois</a></span>
         </div>
-        <p>{{ posts[i].getSomeContent() }}</p>
-        <a href="http://127.0.0.1:8000/post/{{ posts[i].id }}" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
+        <p>{{ post.getSomeContent() }}</p>
+        <a href="http://127.0.0.1:8000/post/{{ post.id }}" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
     </div>
     <!-- Blog Post End -->
     {% endfor %}
