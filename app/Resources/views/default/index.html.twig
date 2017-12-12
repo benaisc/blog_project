@@ -11,7 +11,7 @@
             <span>{{ post.getPublishedStr() }} / by <a href="#" target="_blank">Alois</a></span>
         </div>
         <p>{{ post.getSomeContent() }}...</p>
-        <a href="http://127.0.0.1:8000/post/{{ post.id }}" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
+        <a href="{{ app.request.uri }}post/{{ post.id }}" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
     </div>
     <!-- Blog Post End -->
     {% endfor %}
