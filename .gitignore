@@ -53,8 +53,8 @@ composer.phar
 **/Entity/*~
 
 ### Symfony Patch ###
-/web/css/
-/web/js/
+#/web/css/
+#/web/js/
 .web-server-pid
 
 # Manually added
