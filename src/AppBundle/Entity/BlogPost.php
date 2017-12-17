@@ -176,6 +176,17 @@ class BlogPost
         return substr($this->content,0,255);
     }
 
+    /**
+     * Get first $count words of the content
+     *
+     * @return string
+     */
+	function get_words($sentence, $count = 10)
+	{
+	  preg_match("/(?:\[^\s,\.;\?\!]+(?:\[\s,\.;\?\!]+|$)){0,$count}/", $sentence, $matches);
+	  return $matches[0];
+	}
+
 
 }
 
