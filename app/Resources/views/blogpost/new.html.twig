@@ -5,16 +5,18 @@
         <legend>
     <h1>Blogpost creation</h1></legend>
 
-
+    <div>
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <section>
+            <input type="submit" class="btn btn-primary" value="Create" />
+        </section>
     {{ form_end(form) }}
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('blogpost_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+            <aside>
+                <a href="{{ path('blogpost_index') }}" class="btn btn-primary" role="button">Back to the list</a>
+            </aside>
     </fieldset>
 {% endblock %}
