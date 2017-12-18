@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Blogpost creation</h1>
+    <fieldset>
+        <legend>
+    <h1>Blogpost creation</h1></legend>
+
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -13,4 +16,5 @@
             <a href="{{ path('blogpost_index') }}">Back to the list</a>
         </li>
     </ul>
+    </fieldset>
 {% endblock %}

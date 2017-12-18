@@ -9,37 +9,39 @@
         </li>
     </ul>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Urlalias</th>
-                <th>Published</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for blogPost in blogPosts %}
-            <tr>
-                <td><a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">{{ blogPost.id }}</a></td>
-                <td>{{ blogPost.title }}</td>
-                <td>{{ blogPost.content }}</td>
-                <td>{{ blogPost.urlAlias }}</td>
-                <td>{% if blogPost.published %}{{ blogPost.published|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">url</th>
+                    <th scope="col">Published</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for blogPost in blogPosts %}
+                <tr>
+                        <td scope="col"><a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">{{ blogPost.id }}</a></td>
+                        <td scope="col">{{ blogPost.title }}</td>
+                        <td scope="col">{{ blogPost.getSomeWords(10) }}</td>
+                        <td scope="col">{{ blogPost.urlAlias }}</td>
+                        <td scope="col">{% if blogPost.published %}{{ blogPost.published|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td scope="col">
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
 {% endblock %}

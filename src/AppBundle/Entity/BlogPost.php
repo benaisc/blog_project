@@ -181,9 +181,9 @@ class BlogPost
      *
      * @return string
      */
-	function get_words($sentence, $count = 10)
+	function getSomeWords($count = 10)
 	{
-	  preg_match("/(?:\[^\s,\.;\?\!]+(?:\[\s,\.;\?\!]+|$)){0,$count}/", $sentence, $matches);
+	  preg_match("/(?:[^\s,.;?!]+(?:[\s,.;?!]+|$)){0,$count}/", $this->content, $matches);
 	  return $matches[0];
 	}
 
