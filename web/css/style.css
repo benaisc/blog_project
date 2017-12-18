@@ -502,6 +502,7 @@ tr > td:nth-child(2) {
     color: #333333;
 }
 
+
 .form-group {
     margin-bottom: 25px;
 }
@@ -1799,4 +1800,23 @@ blockquote {
 
 .uipasta-credit a:hover {
     color: #333333;
+}
+
+
+/*ajouts personnels */
+header,
+section,
+aside,
+footer {
+    margin: 0 1.5% 24px 1.5%;
+}
+
+
+section {
+    float: left;
+    width: 63%;
+}
+aside {
+    float: right;
+    width: 30%;
 }
