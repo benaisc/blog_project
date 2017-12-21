@@ -23,22 +23,23 @@
             </tr>
             <tr>
                 <th>Published</th>
-                <td>{% if blogPost.published %}{{ blogPost.published|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if blogPost.published %}{{ blogPost.published|date('d-m-Y H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('blogpost_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <br/>
+
+    <a href="{{ path('blogpost_index') }}" class="btn btn-primary" role="button">Back to the list</a>
+
+    <br/>
+
+    <a href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}" class="btn btn-primary" role="button">Edit</a>
+
+    <br/>
+
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Delete" class="btn btn-primary" role="button">
+    {{ form_end(delete_form) }}
+
 {% endblock %}
