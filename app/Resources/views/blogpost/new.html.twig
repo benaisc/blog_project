@@ -3,20 +3,20 @@
 {% block body %}
     <fieldset>
         <legend>
-    <h1>Blogpost creation</h1></legend>
+            <h1>Blogpost creation</h1>
+        </legend>
 
-    <div>
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <section>
-            <input type="submit" class="btn btn-primary" value="Create" />
-        </section>
-    {{ form_end(form) }}
-    </div>
+        <div>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <section>
+                <input type="submit" class="btn btn-primary" value="Create" />
+            </section>
+        {{ form_end(form) }}
+        </div>
 
-
-            <aside>
-                <a href="{{ path('blogpost_index') }}" class="btn btn-primary" role="button">Back to the list</a>
-            </aside>
+        <aside>
+            <a href="{{ path('blogpost_index') }}" class="btn btn-primary" role="button">Back to the list</a>
+        </aside>
     </fieldset>
 {% endblock %}

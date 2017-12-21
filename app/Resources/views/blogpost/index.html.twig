@@ -1,14 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
     <section> <h1>Blogposts list</h1></section>
 
-
-            <aside>
-            <a href="{{ path('blogpost_new') }}" class="btn btn-primary" role="button">Create a new blogPost</a>
-            </aside>
-
+    <aside>
+        <a href="{{ path('blogpost_new') }}" class="btn btn-primary" role="button">Create a new blogPost</a>
+    </aside>
 
         <table class="table table-striped table-bordered table-hover">
             <thead>
