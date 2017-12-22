@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\BlogPost;
 use AppBundle\Form\BlogPostType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\File;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -108,9 +109,15 @@ class BlogPostController extends Controller
 
         // Charge l'image
         if($blogPost->getImage() != null){
-            $blogPost->setImage(
-                new File($this->getParameter('images_directory').'/'.$blogPost->getImage())
-            );
+            try {
+                $blogPost->setImage(
+                    new File($this->getParameter('images_directory') . '/' . $blogPost->getImage())
+                );
+            }
+            catch (FileNotFoundException $fnf){
+                $blogPost->setImage(null);
+                $oldImage = null;
+            }
         }
 
         $deleteForm = $this->createDeleteForm($blogPost);
