@@ -3,10 +3,17 @@
 {% block body %}
     <h1>Blogpost edit</h1>
 
+    <img src="{{ blogPost.image }}" class="img-fluid" alt="NO IMAGE" width="100%">
+    <p>(@{{ blogPost.image }})</p>
+
     <div>
     {{ form_start(edit_form) }}
 
-        {{ form_widget(edit_form) }}
+        {{ form_row(edit_form.image) }}
+        {{ form_row(edit_form.title) }}
+        {{ form_row(edit_form.content) }}
+        {{ form_row(edit_form.urlAlias) }}
+        {{ form_row(edit_form.published) }}
 
         <section>
             <input type="submit" value="Edit" class="btn btn-primary" role="button">
@@ -14,11 +21,13 @@
 
     {{ form_end(edit_form) }}
 
-       <section>
-           {{ form_start(delete_form) }}
+        <br/>
+
+        <section>
+            {{ form_start(delete_form) }}
                 <input type="submit" value="Delete" class="btn btn-primary" role="button">
-           {{ form_end(delete_form) }}
-       </section>
+            {{ form_end(delete_form) }}
+        </section>
     </div>
 
 
