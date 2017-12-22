@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Blogpost edit</h1>
 
-    <img src="{{ blogPost.image }}" class="img-fluid" alt="NO IMAGE" width="100%">
+    <img src="{{ asset('uploads/images/' ~ blogPost.image) }}" class="img-fluid" alt="NO IMAGE" width="100%">
     <p>(@{{ blogPost.image }})</p>
 
     <div>
