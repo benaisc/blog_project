@@ -4,8 +4,10 @@ namespace AppBundle\BlogBundle\Controller;
 
 use AppBundle\Entity\BlogPost;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
 
 class BlogController extends Controller
 {
@@ -38,6 +40,20 @@ class BlogController extends Controller
     public function affichePostAlias($alias)
     {
         return $this->render('Posts/post.html.twig', array('post' => $this->getBlogPostByAlias($alias)));
+    }
+
+    /**
+     * @Route("/{url}", name="remove_trailing_slash",
+     *     requirements={"url" = ".*\/$"}, methods={"GET"})
+     */
+    public function removeTrailingSlash(Request $request)
+    {
+        $pathInfo = $request->getPathInfo();
+        $requestUri = $request->getRequestUri();
+
+        $url = str_replace($pathInfo, rtrim($pathInfo, ' /'), $requestUri);
+
+        return $this->redirect($url, 301);
     }
 
     public function getBlogPost($id){
