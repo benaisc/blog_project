@@ -5,13 +5,13 @@
     <!-- Blog Post Start -->
     <div class="col-md-12 blog-post">
         <div class="post-title">
-            <a href="{{ app.request.uri }}post/{{ post.urlAlias }}"><h1>{{ post.title }}</h1></a>
+            <a href="{{ url('homepage') }}post/{{ post.urlAlias }}"><h1>{{ post.title }}</h1></a>
         </div>
         <div class="post-info">
             <span>{{ post.getPublishedStr() }} / by <a href="{{ app.request.uri }}about">Alois</a></span>
         </div>
         <p>{{ post.getSomeContent() }}...</p>
-        <a href="{{ app.request.uri }}post/{{ post.urlAlias }}" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
+        <a href="{{ url('homepage') }}post/{{ post.urlAlias }}" class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
     </div>
     <!-- Blog Post End -->
     {% endfor %}
