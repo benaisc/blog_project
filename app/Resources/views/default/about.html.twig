@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <div class="col-md-12 blog-post">
+
+            <!-- My Intro Start -->
+            <div class="post-title margin-bottom-30">
+                <h1>Hi, I am <span class="main-color">Alois Tendil</span></h1>
+
+                <ul class="knowledge">
+                    <li class="bg-color-1">Web Designer</li>
+                    <li class="bg-color-4">Web Developer</li>
+                    <li class="bg-color-6">Freelancer</li>
+                    <li class="bg-color-5">Consultant</li>
+                </ul>
+
+            </div>
+            <!-- My Intro End -->
+
+            <p>
+                I am in the website field since 2004 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Proin at quam at orci commodo hendrerit vitae nec eros.
+                Vestibulum neque est, imperdiet nec tortor nec, tempor semper metus. <b>I am a developer</b>, et accumsan nisi.
+                Duis laoreet pretium ultricies.
+                Curabitur rhoncus auctor nunc congue sodales.
+                Sed posuere nisi ipsum, eget dignissim nunc dapibus eget.
+                Aenean elementum sollicitudin sapien ut sapien fermentum aliquet mollis.
+                Curabitur ac quam orci sodales quam ut tempor.
+                suspendisse, gravida in augue in, interdum
+                <b><a href="work.html" data-toggle="tooltip" data-placement="top" title="Check out my work.">Work</a></b>
+                bibendum dui. Suspendisse sit amet justo sit amet diam fringilla commodo.
+                Praesent ac magna at metus malesuada tincidunt non ac arcu.
+                Nunc gravida eu felis vel elementum.
+                Vestibulum sodales quam ut tempor tempor Donec sollicitudin imperdiet nec tortor nec, tempor semper metus..
+            </p>
+
+        </div>
+
+        <!-- Footer Start -->
+        <div class="col-md-12 page-body margin-top-50 footer">
+            <footer>
+                <ul class="menu-link">
+                    <li><a href="{{ url('homepage') }}">Home</a></li>
+                    <li><a href="{{ url('homepage') }}about">About</a></li>
+                    <li><a href="{{ url('homepage') }}contact">Contact</a></li>
+                </ul>
+
+                <p>© Copyright 2016 World-Trotter-Blog. All rights reserved</p>
+
+
+                <!-- UiPasta Credit Start -->
+                <div class="uipasta-credit">Design Inspired By <a href="https://github.com/uipasta/" target="_blank">UiPasta</a></div>
+                <!-- UiPasta Credit End -->
+
+
+            </footer>
+        </div>
+        <!-- Footer End -->
+{% endblock %}
