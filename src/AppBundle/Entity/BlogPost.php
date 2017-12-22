@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * BlogPost
@@ -49,6 +50,14 @@ class BlogPost
      */
     private $published;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     *
+     * @Assert\File(mimeTypes={ "image/png" })
+     */
+    private $image;
 
     /**
      * Get id
@@ -186,6 +195,23 @@ class BlogPost
 	  preg_match("/(?:[^\s,.;?!]+(?:[\s,.;?!]+|$)){0,$count}/", $this->content, $matches);
 	  return $matches[0];
 	}
+
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
 
 
 }

@@ -3,9 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\BlogPost;
+use AppBundle\Form\BlogPostType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\File;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * Blogpost controller.
@@ -45,6 +48,25 @@ class BlogPostController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if($blogPost->getImage() != null) {
+                // $file stores the uploaded PNG file
+                /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+                $file = $blogPost->getImage();
+
+                // Generate a unique name for the file before saving it
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+
+                // Move the file to the directory where images are stored
+                $file->move(
+                    $this->getParameter('images_directory'), $fileName
+                );
+
+                // Update the 'image' property to store the PNG file name
+                // instead of its contents
+                $blogPost->setImage($fileName);
+            }
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($blogPost);
             $em->flush();
@@ -82,14 +104,51 @@ class BlogPostController extends Controller
      */
     public function editAction(Request $request, BlogPost $blogPost)
     {
+        $oldImage = $blogPost->getImage();
+
+        // Charge l'image
+        if($blogPost->getImage() != null){
+            $blogPost->setImage(
+                new File($this->getParameter('images_directory').'/'.$blogPost->getImage())
+            );
+        }
+
         $deleteForm = $this->createDeleteForm($blogPost);
         $editForm = $this->createForm('AppBundle\Form\BlogPostType', $blogPost);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            if($blogPost->getImage() != null) {
+                //Handle la suppression de l'image correspondant au post
+                if($oldImage != null) {
+                    $img = new File($this->getParameter('images_directory') . '/' . $oldImage);
+                    unlink($img);
+                }
+
+                // $file stores the uploaded PNG file
+                /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+                $file = $blogPost->getImage();
+
+                // Generate a unique name for the file before saving it
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+
+                // Move the file to the directory where images are stored
+                $file->move(
+                    $this->getParameter('images_directory'), $fileName
+                );
+
+                // Update the 'image' property to store the PNG file name
+                // instead of its contents
+                $blogPost->setImage($fileName);
+            }
+            else{
+                $blogPost->setImage($oldImage);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('blogpost_edit', array('id' => $blogPost->getId()));
+            return $this->redirectToRoute('show_post', array('alias' => $blogPost->getUrlAlias()));
         }
 
         return $this->render('blogpost/edit.html.twig', array(
@@ -111,6 +170,11 @@ class BlogPostController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            //Handle la suppression de l'image correspondant au post
+            $img = new File($this->getParameter('images_directory').'/'.$blogPost->getImage());
+            unlink($img);
+
             $em = $this->getDoctrine()->getManager();
             $em->remove($blogPost);
             $em->flush();

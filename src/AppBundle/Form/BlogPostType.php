@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class BlogPostType extends AbstractType
 {
@@ -13,7 +14,11 @@ class BlogPostType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('content')->add('urlAlias')->add('published');
+        $builder->add('title')
+            ->add('content')
+            ->add('urlAlias')
+            ->add('published')
+            ->add('image', FileType::class, array('required' => false, 'label' => 'Image (PNG file)'));
     }
     
     /**
