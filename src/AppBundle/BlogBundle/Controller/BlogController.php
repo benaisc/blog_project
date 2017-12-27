@@ -16,8 +16,10 @@ class BlogController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig', array('posts' => $this->getAllBlogPost()));
+        return $this->render('default/index.html.twig',
+                             array('posts' => $this->getAllBlogPost()));
     }
+
     /**
      * @Route("/about", name="about_me")
      */
@@ -31,7 +33,8 @@ class BlogController extends Controller
      */
     public function affichePostID($post_id = 1)
     {
-        return $this->render('Posts/post.html.twig', array('post' => $this->getBlogPost($post_id)));
+        return $this->render('Posts/post.html.twig',
+                            array('post' => $this->getBlogPost($post_id)));
     }
 
     /**
@@ -39,24 +42,11 @@ class BlogController extends Controller
      */
     public function affichePostAlias($alias)
     {
-        return $this->render('Posts/post.html.twig', array('post' => $this->getBlogPostByAlias($alias)));
+        return $this->render('Posts/post.html.twig',
+                            array('post' => $this->getBlogPostByAlias($alias)));
     }
 
-    /**
-     * @Route("/{url}", name="remove_trailing_slash",
-     *     requirements={"url" = ".*\/$"}, methods={"GET"})
-     */
-    public function removeTrailingSlash(Request $request)
-    {
-        $pathInfo = $request->getPathInfo();
-        $requestUri = $request->getRequestUri();
-
-        $url = str_replace($pathInfo, rtrim($pathInfo, ' /'), $requestUri);
-
-        return $this->redirect($url, 301);
-    }
-
-    public function getBlogPost($id){
+    public function getBlogPost($id = 1){
         $blogPost = $this->getDoctrine()
             ->getRepository('AppBundle:BlogPost')
             ->find($id);

@@ -21,18 +21,18 @@
             <tbody>
                 {% for blogPost in blogPosts %}
                 <tr>
-                        <th scope="row"><a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">{{ blogPost.id }}</a></th>
-                        <td scope="col-sm-2">{{ blogPost.title }}</td>
-                        <td scope="col-sm-3">{{ blogPost.getSomeWords(10) }}</td>
-                        <td scope="col-sm-2">{{ blogPost.urlAlias }}</td>
-                        <td scope="col-sm-2">{% if blogPost.published %}{{ blogPost.published|date('Y-m-d H:i:s') }}{% endif %}</td>
-                        <td scope="col-sm-2">
-                            <p>
-                                        <a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}" class="btn btn-default btn-block" role="button" >show</a>
-                            </p><p>
-                                        <a href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}" class="btn btn-default btn-block" role="button">edit</a>
-                            </p>
-                        </td>
+                    <th scope="row"><a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}">{{ blogPost.id }}</a></th>
+                    <td scope="col-sm-2">{{ blogPost.title }}</td>
+                    <td scope="col-sm-3">{{ blogPost.getSomeWords(10) }}</td>
+                    <td scope="col-sm-2">{{ blogPost.urlAlias }}</td>
+                    <td scope="col-sm-2">{% if blogPost.published %}{{ blogPost.published|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td scope="col-sm-2">
+                        <p>
+                            <a href="{{ path('blogpost_show', { 'id': blogPost.id }) }}" class="btn btn-default btn-block" role="button">show</a>
+                        </p><p>
+                            <a href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}" class="btn btn-default btn-block" role="button">edit</a>
+                        </p>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

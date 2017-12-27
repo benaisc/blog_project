@@ -24,7 +24,7 @@ class BlogPostController extends Controller
      * @Route("/", name="blogpost_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function adminAction()
     {
         $em = $this->getDoctrine()->getManager();
 
