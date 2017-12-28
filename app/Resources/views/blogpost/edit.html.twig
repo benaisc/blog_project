@@ -16,25 +16,28 @@
         {{ form_row(edit_form.urlAlias) }}
         {{ form_row(edit_form.published) }}
 
-        <section>
-            <input type="submit" value="Edit" class="btn btn-primary" role="button">
-        </section>
-
-    {{ form_end(edit_form) }}
-
-        <br/>
-
-        <section>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete" class="btn btn-primary" role="button">
-            {{ form_end(delete_form) }}
-        </section>
+        {{ form_end(edit_form) }}
     </div>
 
+    <p>
 
-    <aside>
-        <a href="{{ path('blogpost_index') }}" class="btn btn-primary" role="button">Back to the list</a>
-    </aside>
+        <section>
+            <a href="{{ path('blogpost_index') }}" class="btn btn-primary" role="button" onclick="return confirm('You will lose all modification.')">Back to the list</a>
+        </section>
+
+        <aside>
+            <input type="submit" value="Edit" class="btn btn-primary" role="button">
+        </aside>
+
+        <aside>
+            <p>
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete" class="btn btn-danger" role="button"  onclick="return confirm('Are you sure?')">
+                {{ form_end(delete_form) }}
+            </p>
+        </aside>
+
+    </p>
 
 
 {% endblock %}
