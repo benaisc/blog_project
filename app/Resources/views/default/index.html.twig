@@ -5,7 +5,14 @@
     <!-- Blog Post Start -->
     <div class="col-md-12 blog-post">
         <div class="post-title">
-            <a href="{{ url('homepage') }}post/{{ post.urlAlias }}"><h1>{{ post.title }}</h1></a>
+            <a href="{{ url('homepage') }}post/{{ post.urlAlias }}">
+                <h1>
+                    {% if post.image != ""%}
+                        <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="" class="img-thumbnail" width="200px" height="200px">
+                    {% endif %}
+                    {{ post.title }}
+                </h1>
+            </a>
         </div>
 
         <div class="post-info">
