@@ -38,6 +38,35 @@
         <div class="container">
             <div class="row">
 
+                <!-- Nav bar pour login -->
+
+
+                <div class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <li><a href="{{ path('fos_user_profile_edit') }}">
+                                            Logged in as {{ app.user.username }}
+                                        </a>
+                                    </li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">
+                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
                 <!-- About Me (Left Sidebar) Start -->
                 <div class="col-md-3">
                     <div class="about-fixed">
@@ -79,7 +108,8 @@
 
 
                             <div class="sub-title">
-                                <h2>Travelling Blog-Journal</h2>
+                                <h2>{% block name %}
+                                    {% endblock name %}</h2>
                                 <a href="{{ url('homepage') }}contact"><i class="icon-envelope"></i></a>
                             </div>
 
