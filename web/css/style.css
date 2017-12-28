@@ -52,7 +52,12 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background: #fafafa !important;
+    /*background: #fafafa !important;*/
+    background-image: url("../wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-attachment: fixed;
+
 }
 	
 html {
@@ -1804,9 +1809,20 @@ blockquote {
 
 
 /*ajouts personnels */
+
+.page-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    vertical-align: middle;
+    color: darkslategrey;
+    font-family: "Poppins", sans-serif;
+    background-color: #e76f51;
+
+}
+
+
 header,
-section,
-aside,
 footer {
     margin: 0 1.5% 24px 1.5%;
 }
@@ -1820,3 +1836,5 @@ aside {
     float: right;
     width: 30%;
 }
+
+
