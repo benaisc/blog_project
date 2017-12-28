@@ -31,18 +31,14 @@
         </tbody>
     </table>
 
-    <br/>
 
-    <a href="{{ path('blogpost_index') }}" class="btn btn-primary" role="button">Back to the list</a>
 
-    <br/>
+    <p>
 
-    <a href="{{ path('blogpost_edit', { 'id': blogPost.id }) }}" class="btn btn-primary" role="button">Edit</a>
+        <aside>
+            <a href="{{ path('blogpost_index') }}" class="btn btn-primary" role="button">Back to the list</a>
+        </aside>
 
-    <br/>
-
-    {{ form_start(delete_form) }}
-    <input type="submit" value="Delete" class="btn btn-primary" role="button">
-    {{ form_end(delete_form) }}
+    </p>
 
 {% endblock %}
