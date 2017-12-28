@@ -179,9 +179,11 @@ class BlogPostController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             //Handle la suppression de l'image correspondant au post
-            $img = new File($this->getParameter('images_directory').'/'.$blogPost->getImage());
-            unlink($img);
 
+            if($blogPost->getImage() != null) {
+                $img = new File($this->getParameter('images_directory') . '/' . $blogPost->getImage());
+                unlink($img);
+            }
             $em = $this->getDoctrine()->getManager();
             $em->remove($blogPost);
             $em->flush();
