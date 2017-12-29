@@ -1,17 +1,5 @@
 /*
    
-    Template Name : DevBlog - Personal Blog Template
-    Author : UiPasta Team
-    Website : http://www.uipasta.com/
-    Support : http://www.uipasta.com/support/
-	
-	
-*/
-
-
-
-/*
-   
    Table Of Content
    
    1. Global Style
@@ -58,7 +46,6 @@ body {
     background-position: left bottom;
     background-attachment: fixed;
     background-size: cover;
-
 }
 	
 html {
@@ -1812,15 +1799,19 @@ blockquote {
 /*ajouts personnels */
 
 .page-header {
-    height: 150px;
+    height: 100px;
     width: 100%;
-    text-align: center;
-    vertical-align: middle;
     color: #bce8f1;
-    font-family: "Poppins", sans-serif;
-    background-color: #e76f51;
-    margin-top: auto;
+    background-color: #000000;
+    opacity: 0.5;
+}
 
+.page-header h1{
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+	text-align: center;
 }
 
 
