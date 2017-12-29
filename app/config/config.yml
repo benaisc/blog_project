@@ -78,6 +78,22 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+    service:
+            mailer: fos_user.mailer.twig_swift
+    registration:
+            confirmation:
+                enabled: true
+                from_email:
+                    address:        registration@example.com
+                    sender_name:    Registration
+                template:   FOSUserBundle:Registration:email.txt.twig
+    resetting:
+            email:
+                from_email:
+                    address:        resetting@example.com
+                    sender_name:    Resetting
+                template:   FOSUserBundle:Resetting:email.txt.twig
+
 
 # Swiftmailer Configuration
 swiftmailer:

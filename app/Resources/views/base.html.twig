@@ -92,6 +92,12 @@
                                                 Logged in as {{ app.user.username }}
                                             </a>
                                         </li>
+                                        {% if is_granted("ROLE_ADMIN") %}
+                                            <li> <a href="{{ url('homepage') }}admin" >
+                                                    Go to Admin Dash
+                                                </a>
+                                            </li>
+                                        {% endif %}
                                         <li ><a href="{{ path('fos_user_security_logout') }}" >
                                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                             </a>
