@@ -41,7 +41,7 @@
 body {
     font-family: "Poppins", sans-serif;
     /*background: #fafafa !important;*/
-    background-image: url("../wallpaper.png");
+    background-image: url("../wallpaper.jpg");
     background-repeat: repeat;
     background-position: left bottom;
     background-attachment: fixed;
@@ -1799,6 +1799,7 @@ blockquote {
 /*ajouts personnels */
 
 .page-header {
+    margin-top: -20px !important;
     height: 100px;
     width: 100%;
     color: #bce8f1;
@@ -1812,12 +1813,6 @@ blockquote {
     top: 50%;
     transform: translateY(-50%);
 	text-align: center;
-}
-
-
-header,
-footer {
-    margin: 0 1.5% 24px 1.5%;
 }
 
 

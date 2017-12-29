@@ -13,10 +13,10 @@
 			<span>{{ post.getPublishedStr() }} / by <a href="{{ url('homepage') }}about">Alois</a></span>
 		</div>
 		<p>{{ post.content }}</p>
-
-		<aside>
-			<a href="{{ url('homepage') }}" class="btn btn-primary" role="button">Back to homepage</a>
-		</aside>
 	</div>
+
+	<center>
+		<a href="{{ url('homepage') }}" class="btn btn-primary" role="button">Homepage</a>
+	</center>
 	<!-- Blog Post End -->
 {% endblock %}
