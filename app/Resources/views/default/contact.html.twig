@@ -1,0 +1,174 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-md-12 blog-post">
+
+        <!-- My Intro Start -->
+        <div class="post-title margin-top-70">
+            <h1>Contact <span class="main-color">Alois</span></h1>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-3 col-sm-3">
+                <div class="contact-us-detail">
+                    <i class="icon-screen-smartphone color-6"></i>
+                    <p><a href="tel:+1234567890">+1234 567 890</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-sm-5">
+                <div class="contact-us-detail">
+                    <i class="icon-envelope-open color-5"></i>
+                    <p><a href="mailto:world-trotter@netcourrier.com">world-trotter@netcourrier.com</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="contact-us-detail">
+                    <i class="icon-clock color-3"></i>
+                    <p>Mon - Fri 09:00 – 18:00 (Australian Time!)</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row margin-top-30">
+            <div class="col-md-12">
+
+                <div class="row">
+
+                    {{ form_start(form) }}
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{ form_widget(form.website) }}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{ form_widget(form.place) }}
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            {{ form_widget(form.subject) }}
+                            {{ form_errors(form.subject) }}
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="textarea-message form-group">
+                        {{ form_widget(form.message) }}
+                        {{ form_errors(form.message) }}
+                        </div>
+                    </div>
+
+                    {# Render CSRF token etc .#}
+                    <div style="display:none">
+                        {{ form_rest(form) }}
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="load-more-button">Send</button>
+                    </div>
+
+                    {{ form_end(form) }}
+
+
+                    <!--
+
+                    <form>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" id="name" class="form-control" placeholder="Your Name">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="email" id="email" class="form-control" placeholder="Your Email">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" id="website" class="form-control" placeholder="Your Website">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" id="address" class="form-control" placeholder="Where are You From?">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <select id="subject" class="form-group form-control">
+                                <option value="" selected disabled>Subject</option>
+                                <option>Website Design & Development</option>
+                                <option>Wordpress Development</option>
+                                <option>Search Engine Optimization</option>
+                                <option>Mobile Website</option>
+                                <option>I Want to General Talk</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="textarea-message form-group">
+                                <textarea id="message" class="textarea-message form-control" placeholder="Your Message" rows="5"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="text-center">
+                            <button type="submit" class="load-more-button">Send</button>
+                        </div>
+
+                    </form>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="col-md-12 page-body margin-top-50 footer">
+        <footer>
+            <ul class="menu-link">
+                <li><a href="{{ url('homepage') }}">Home</a></li>
+                <li><a href="{{ url('homepage') }}about">About</a></li>
+                <li><a href="{{ url('homepage') }}contact">Contact</a></li>
+            </ul>
+
+            <p>© Copyright
+                <script type="text/javascript">var cur = 2017; var year = new Date(); if(cur == year.getFullYear()) year = year.getFullYear(); else year = cur + ' - ' + year.getFullYear(); document.write(year);</script> World-Trotter-Blog. All rights reserved</p>
+
+
+            <!-- UiPasta Credit Start -->
+            <div class="uipasta-credit">Design Inspired By <a href="https://github.com/uipasta/" target="_blank">UiPasta</a></div>
+            <!-- UiPasta Credit End -->
+
+
+        </footer>
+    </div>
+    <!-- Footer End -->
+{% endblock %}
