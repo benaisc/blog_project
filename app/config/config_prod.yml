@@ -24,3 +24,10 @@ monolog:
         console:
             type: console
             process_psr_3_messages: false
+
+# Swiftmailer Configuration
+swiftmailer:
+    host: "%env(MAIL_HOST)%"
+    username: "%env(MAIL_USER)%"
+    password: "%env(MAIL_PASSWORD)%"
+    port: "%env(MAIL_PORT)%"
