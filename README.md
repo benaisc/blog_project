@@ -9,8 +9,8 @@ Made with <3 by BENAIS Charles and FRESQUET Louise.
 	/                  => index
 	/post/{urlAlias}   => a blogPost
 	/about             => about us
+	/contact           => contact us form
 	/admin             => CRUD (protected)
-	/contact           => TODO
 
 
 Test it there : http://world-trotter-blog.herokuapp.com/
