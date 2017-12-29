@@ -28,9 +28,6 @@ class BlogController extends Controller
         return $this->render('default/about.html.twig');
     }
 
-
-
-
     /**
      * @Route("/contact", name="contact_me")
      */
@@ -40,7 +37,6 @@ class BlogController extends Controller
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
-
             if($form->isValid()){
                 // Send mail
                 if($this->sendEmail($form->getData())){
@@ -57,23 +53,13 @@ class BlogController extends Controller
         ));
     }
 
-
     private function sendEmail($data){
-
-
         $message = (new \Swift_Message($data['subject']))
             ->setFrom($data['email'])
-            ->setTo('loufr@net-c.com')
-            ->setBody($data['message'])
-
-        ;
+            ->setTo($this->getParameter('owner_mail'))
+            ->setBody($data['message']);
         return $this->get('mailer')->send($message);
-
     }
-
-
-
-
 
     /**
      * @Route("/post/{post_id}", name="blog_post", requirements={"post_id": "\d+"})
