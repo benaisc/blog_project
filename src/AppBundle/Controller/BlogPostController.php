@@ -26,9 +26,9 @@ class BlogPostController extends Controller
      */
     public function adminAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $blogPosts = $em->getRepository('AppBundle:BlogPost')->findAll();
+        $blogPosts = $this->getDoctrine()
+            ->getRepository('AppBundle:BlogPost')
+            ->findAllById();
 
         return $this->render('blogpost/index.html.twig', array(
             'blogPosts' => $blogPosts,
@@ -155,7 +155,7 @@ class BlogPostController extends Controller
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('show_post', array('alias' => $blogPost->getUrlAlias()));
+            return $this->redirectToRoute('blogpost_show', array('id' => $blogPost->getId()));
         }
 
         return $this->render('blogpost/edit.html.twig', array(

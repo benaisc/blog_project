@@ -14,4 +14,9 @@ class BlogPostRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->findBy(array(), array('published' => 'DESC'));
     }
+
+    public function findAllById()
+    {
+        return $this->findBy(array(), array('id' => 'DESC'));
+    }
 }
