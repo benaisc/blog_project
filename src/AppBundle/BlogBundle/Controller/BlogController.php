@@ -36,24 +36,18 @@ class BlogController extends Controller
      */
     public function contactAction(Request $request)
     {
-        // Create the form according to the FormType created previously.
-        // And give the proper parameters
         $form = $this->createForm('AppBundle\Form\ContactType');
 
         if ($request->isMethod('POST')) {
-            // Refill the fields in case the form is not valid.
             $form->handleRequest($request);
 
             if($form->isValid()){
                 // Send mail
                 if($this->sendEmail($form->getData())){
-
-                    // Everything OK, redirect to wherever you want ! :
-
                     return $this->redirectToRoute('index');
-                }else{
-                    // An error ocurred, handle
-                    var_dump("Errooooor :(");
+                }
+                else{
+                    var_dump("Error");
                 }
             }
         }
