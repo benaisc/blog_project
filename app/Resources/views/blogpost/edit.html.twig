@@ -16,7 +16,10 @@
         {{ form_row(edit_form.urlAlias) }}
         {{ form_row(edit_form.published) }}
 
-        {{ form_end(edit_form) }}
+        <aside>
+            <input type="submit" value="Edit" class="btn btn-primary" role="button">
+        </aside>
+    {{ form_end(edit_form) }}
     </div>
 
     <p>
@@ -25,9 +28,6 @@
             <a href="{{ path('blogpost_index') }}" class="btn btn-primary" role="button" onclick="return confirm('You will lose all modification.')">Back to the list</a>
         </section>
 
-        <aside>
-            <input type="submit" value="Edit" class="btn btn-primary" role="button">
-        </aside>
 
         <aside>
             <p>
