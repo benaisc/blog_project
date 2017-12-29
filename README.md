@@ -4,11 +4,11 @@ Blog Project : Australian Roadtrip
 Made with <3 by BENAIS Charles and FRESQUET Louise.
 
 
-##Routes:
+## Routes:
 
-	/                       => index
-	/post/{urlAlias} => a blogPost
-	/about              => about us
+	/                  => index
+	/post/{urlAlias}   => a blogPost
+	/about             => about us
 	/admin             => CRUD (protected)
 	/contact           => TODO
 
@@ -16,8 +16,9 @@ Made with <3 by BENAIS Charles and FRESQUET Louise.
 Test it there : http://world-trotter-blog.herokuapp.com/
 
 
-##Want to Participate ?
-###Pre-Requisite
+## Want to Participate ?
+
+### Pre-Requisite
 	PHP 7.1+, PostgreSQL 10.1+, PHP-PGSQL
 
 ### How To ?
