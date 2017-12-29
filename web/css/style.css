@@ -41,7 +41,7 @@
 body {
     font-family: "Poppins", sans-serif;
     /*background: #fafafa !important;*/
-    background-image: url("../wallpaper.jpg");
+    background-image: url("../public/wallpaper.jpg");
     background-repeat: repeat;
     background-position: left bottom;
     background-attachment: fixed;
@@ -1003,7 +1003,7 @@ blockquote {
 /* Footer */
 
 .footer {
-    background: url(../images/bg/pattern-bg.png);
+    background: url(../public/bg-footer.png);
     background-repeat: repeat;
     text-align: center;
     padding: 30px 0;

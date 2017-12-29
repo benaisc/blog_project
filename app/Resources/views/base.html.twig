@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
 
         <!-- Main CSS Stylesheet -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
@@ -42,14 +42,14 @@
                     <div class="about-fixed">
 
                         <div class="my-pic">
-                            <img src="{{ asset('pic.jpg') }}" alt="">
+                            <img src="{{ asset('public/pic.jpg') }}" alt="">
                             <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
                             <div id="menu" class="collapse">
 
                                 <ul class="social-icon">
                                     <li><a href="https://www.facebook.com/sammtass" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
                                     <!--<li><a href="#" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li> -->
-                                    <li><a href="#" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="https://fr.linkedin.com/in/alois-tendil-03464b93" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a href="https://github.com/gurujam/blog_project" target="_blank" class="github"><i class="fa fa-github"></i></a></li>
                                 </ul>
 
