@@ -27,7 +27,10 @@ monolog:
 
 # Swiftmailer Configuration
 swiftmailer:
+    transport: smtp
     host: "%env(MAIL_HOST)%"
     username: "%env(MAIL_USER)%"
     password: "%env(MAIL_PASSWORD)%"
     port: "%env(MAIL_PORT)%"
+    encryption: ssl
+    spool: { type: memory }
