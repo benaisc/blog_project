@@ -9,6 +9,7 @@ imports:
 parameters:
     locale: en
     images_directory: '%kernel.project_dir%/web/uploads/images'
+    owner_mail: 'world-trotter@netcourrier.com'
 
 framework:
     #esi: ~
@@ -84,13 +85,13 @@ fos_user:
             confirmation:
                 enabled: true
                 from_email:
-                    address:        registration@example.com
+                    address:        registration@noreply.com
                     sender_name:    Registration
                 template:   FOSUserBundle:Registration:email.txt.twig
     resetting:
             email:
                 from_email:
-                    address:        resetting@example.com
+                    address:        resetting@noreply.com
                     sender_name:    Resetting
                 template:   FOSUserBundle:Resetting:email.txt.twig
 
