@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Welcome!{% endblock %}
+
 {% block body %}
     {% for post in posts|reverse %}
     <!-- Blog Post Start -->
@@ -16,7 +18,7 @@
         </div>
 
         <div class="post-info">
-            <span>{{ post.getPublishedStr() }} / by <a href="{{ url('homepage') }}about">Alois</a></span>
+            <span>{{ post.getPublishedStr() }} / by <b><a href="{{ url('homepage') }}about">Alois</a></b></span>
         </div>
 
         <p>{{ post.getSomeContent() }}...</p>
