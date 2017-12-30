@@ -5,8 +5,8 @@
 {% block body %}
 	<!-- Blog Post Start -->
 	<div class="col-md-12 blog-post">
-		<a href="{{ asset('uploads/images/' ~ post.image) }}" target="_blank">
-			<img src="{{ asset('uploads/images/' ~ post.image) }}" class="img-fluid" alt="" width="100%">
+		<a href="{{ post.image }}" target="_blank">
+			<img src="{{ post.image }}" class="img-fluid" alt="" width="100%">
 		</a>
 		<div class="post-title">
 			<h1>{{ post.title }}</h1></a>
