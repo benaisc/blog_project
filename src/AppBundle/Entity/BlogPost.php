@@ -53,9 +53,7 @@ class BlogPost
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
-     *
-     * @Assert\File(mimeTypes={ "image/png" })
+     * @ORM\Column(name="image", type="string", length=512)
      */
     private $image;
 
@@ -198,7 +196,7 @@ class BlogPost
 
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getImage()
     {
@@ -206,7 +204,7 @@ class BlogPost
     }
 
     /**
-     * @param mixed $image
+     * @param string $image
      */
     public function setImage($image)
     {

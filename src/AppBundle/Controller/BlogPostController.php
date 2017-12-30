@@ -49,10 +49,10 @@ class BlogPostController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            /* LOGIQUE PERMETTANT DE GERER L'IMAGE HORS BDD
             if($blogPost->getImage() != null) {
                 // $file stores the uploaded PNG file
-                /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+                /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file *
                 $file = $blogPost->getImage();
 
                 // Generate a unique name for the file before saving it
@@ -67,7 +67,7 @@ class BlogPostController extends Controller
                 // instead of its contents
                 $blogPost->setImage($fileName);
             }
-
+            */
             $em = $this->getDoctrine()->getManager();
             $em->persist($blogPost);
             $em->flush();
@@ -105,7 +105,7 @@ class BlogPostController extends Controller
      */
     public function editAction(Request $request, BlogPost $blogPost)
     {
-        $oldImage = $blogPost->getImage();
+        /*$oldImage = $blogPost->getImage();
 
         // Charge l'image
         if($blogPost->getImage() != null){
@@ -119,13 +119,14 @@ class BlogPostController extends Controller
                 $oldImage = null;
             }
         }
+        */
 
         $deleteForm = $this->createDeleteForm($blogPost);
         $editForm = $this->createForm('AppBundle\Form\BlogPostType', $blogPost);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-
+            /*
             if($blogPost->getImage() != null) {
                 //Handle la suppression de l'image correspondant au post
                 if($oldImage != null) {
@@ -134,7 +135,7 @@ class BlogPostController extends Controller
                 }
 
                 // $file stores the uploaded PNG file
-                /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+                /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file *
                 $file = $blogPost->getImage();
 
                 // Generate a unique name for the file before saving it
@@ -152,6 +153,7 @@ class BlogPostController extends Controller
             else{
                 $blogPost->setImage($oldImage);
             }
+            */
 
             $this->getDoctrine()->getManager()->flush();
 
@@ -178,12 +180,12 @@ class BlogPostController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //Handle la suppression de l'image correspondant au post
-
+            /*Handle la suppression de l'image correspondant au post
             if($blogPost->getImage() != null) {
                 $img = new File($this->getParameter('images_directory') . '/' . $blogPost->getImage());
                 unlink($img);
             }
+            */
             $em = $this->getDoctrine()->getManager();
             $em->remove($blogPost);
             $em->flush();

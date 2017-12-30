@@ -5,9 +5,8 @@ Made with <3 by BENAIS Charles and FRESQUET Louise.
 
 Test it there : http://world-trotter-blog.herokuapp.com/
 
-Login: prof
-
-Password: prof
++ Login: prof
++ Password: prof
 
 ## Routes:
 

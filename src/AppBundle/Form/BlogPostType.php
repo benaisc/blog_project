@@ -18,7 +18,7 @@ class BlogPostType extends AbstractType
             ->add('content')
             ->add('urlAlias')
             ->add('published')
-            ->add('image', FileType::class, array('required' => false, 'label' => 'Image (PNG file)'));
+            ->add('image');
     }
     
     /**
