@@ -3,6 +3,11 @@ Blog Project : Australian Roadtrip
 
 Made with <3 by BENAIS Charles and FRESQUET Louise.
 
+Test it there : http://world-trotter-blog.herokuapp.com/
+
+Login: prof
+
+Password: prof
 
 ## Routes:
 
@@ -13,7 +18,14 @@ Made with <3 by BENAIS Charles and FRESQUET Louise.
 	/admin             => CRUD (protected)
 
 
-Test it there : http://world-trotter-blog.herokuapp.com/
+## Commentaires:
+On utilise le service SendGrid (Avec l'offre gratuite, limite de 100 mails par mois ^^) et le module SwiftMailer pour la gestion des mails, ce qui nous permet gérer des emails lors de :
+- la création de comptes
+- la réinitialisation du mot de passe
+- la soumission du formulaire de la page de contact. 
+
+Pour la BDD on utilise PostgreSQL hébergé sur Heroku (limite de 500Mo) couplé à l'ORM de doctrine et les bundles symfony doctrine-maker et doctrine-migrations, avec FOSUserBundle pour les utilisateurs.
+
 
 
 ## Want to Participate ?
