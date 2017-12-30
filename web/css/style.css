@@ -1808,7 +1808,7 @@ blockquote {
     opacity: 0.5;
 }
 
-.page-header h1{
+.page-header h1 {
     font-family: "Poppins", sans-serif;
     position: relative;
     top: 50%;
@@ -1816,6 +1816,9 @@ blockquote {
 	text-align: center;
 }
 
+.post-content {
+	white-space: pre-line;
+}
 
 section {
     float: left;
