@@ -53,7 +53,7 @@ class BlogPost
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=512)
+     * @ORM\Column(name="image", type="string", length=512, nullable=true)
      */
     private $image;
 
