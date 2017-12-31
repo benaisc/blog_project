@@ -25,7 +25,7 @@ On utilise le service SendGrid (Avec l'offre gratuite, limite de 100 mails par m
 
 Pour la BDD on utilise PostgreSQL hébergé sur Heroku (limite de 500Mo) couplé à l'ORM de doctrine et les bundles symfony doctrine-maker et doctrine-migrations, avec FOSUserBundle pour les utilisateurs.
 
-
+TODO: Gestion des commentaires !
 
 ## Want to Participate ?
 
